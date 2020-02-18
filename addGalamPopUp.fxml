@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="120.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.AddGalamData">
+   <children>
+      <Label layoutX="5.0" layoutY="40.0" text="Add another Galamsey or click exit to go back.">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Button fx:id="CloseBtn" layoutX="133.0" layoutY="80.0" mnemonicParsing="false" onAction="#close" text="OK" />
+   </children>
+</AnchorPane>

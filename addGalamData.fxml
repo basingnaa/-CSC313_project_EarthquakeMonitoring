@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.AddGalamData">
+   <children>
+      <TextField fx:id="vegTextField" layoutX="89.0" layoutY="124.0" prefHeight="26.0" prefWidth="422.0" promptText="Enter Vegetation Colour{GREEN,BROWN,YELLOW}" />
+      <TextField fx:id="yearTextField" layoutX="89.0" layoutY="173.0" prefHeight="26.0" prefWidth="422.0" promptText="Enter Year of Event" />
+      <TextField fx:id="longTextField" layoutX="89.0" layoutY="224.0" prefHeight="26.0" prefWidth="422.0" promptText="Enter Longitude" />
+      <TextField fx:id="latTextField" layoutX="88.0" layoutY="279.0" prefHeight="26.0" prefWidth="422.0" promptText="Enter Latitude" />
+      <Label layoutX="88.0" layoutY="107.0" text="Enter Vegetation Colour{GREEN,BROWN,YELLOW}" />
+      <Label layoutX="88.0" layoutY="155.0" text="Enter Year of Event" />
+      <Label layoutX="89.0" layoutY="207.0" text="Enter Longitude" />
+      <Label layoutX="89.0" layoutY="262.0" text="Enter Latitude" />
+      <Button fx:id="saveData" layoutX="89.0" layoutY="324.0" mnemonicParsing="false" onAction="#saveData" prefHeight="26.0" prefWidth="186.0" text="Save Data" />
+      <Button layoutX="324.0" layoutY="324.0" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="186.0" text="Exit" />
+   </children>
+</AnchorPane>
