@@ -36,9 +36,11 @@ Supporting programs
 
 
 
+
+
 **Authors**
 
-Anthony Basignaa
-Kweku Agyemang
-Mark Zoiku
-Seyram Hugh-Tamakloe
+* Anthony Basignaa
+* Kweku Agyemang
+* Mark Zoiku
+* Seyram Hugh-Tamakloe
