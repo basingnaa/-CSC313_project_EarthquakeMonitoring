@@ -1,54 +1,70 @@
-package project;
+package Project_1;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.sql.*;
 
-public class UtilityClass{
+public class UtilityClass {
     int entryNum;
     Galamsey[] galamseys;
     boolean isFull;
     int numOperations;
 
-    UtilityClass(){
+    UtilityClass() {
         entryNum = 0;
         galamseys = new Galamsey[0];
     }
 
-    UtilityClass(int entryNum){
-        this.entryNum = entryNum;galamseys = new Galamsey[entryNum];
+    UtilityClass(int entryNum) {
+        this.entryNum = entryNum;
+        galamseys = new Galamsey[entryNum];
     }
 
     //ACCESSOR AND MUTATOR METHODS
-    public int getEntryNum() { return entryNum; }
+    public int getEntryNum() {
+        return entryNum;
+    }
 
-    public void setEntryNum(int entryNum) { this.entryNum = entryNum; }
+    public void setEntryNum(int entryNum) {
+        this.entryNum = entryNum;
+    }
 
-    public Galamsey[] getGalamseys() { return galamseys; }
+    public Galamsey[] getGalamseys() {
+        return galamseys;
+    }
 
-    public void setGalamseys(Galamsey[] galamseys) { this.galamseys = galamseys; }
+    public void setGalamseys(Galamsey[] galamseys) {
+        this.galamseys = galamseys;
+    }
 
-    public void setFull(boolean full) { isFull = full; }
+    public void setFull(boolean full) {
+        isFull = full;
+    }
 
-    public int getNumOperations() { return numOperations; }
+    public int getNumOperations() {
+        return numOperations;
+    }
 
-    public void setNumOperations(int numOperations) { this.numOperations = numOperations; }
+    public void setNumOperations(int numOperations) {
+        this.numOperations = numOperations;
+    }
 
-    boolean isEmpty(){ return numOperations == 0; }
+    boolean isEmpty() {
+        return numOperations == 0;
+    }
 
-    boolean isFull(){ return numOperations == entryNum; }
+    boolean isFull() {
+        return numOperations == entryNum;
+    }
 
 
     void addEntry(Galamsey operation) {
         if (isEmpty()) {
             galamseys[0] = operation;
             numOperations++;
-        }
-        else if(isFull()){
-            entryNum = 2*numOperations;
-        }
-        else if(!isEmpty())
-            for(int i = 1; i < galamseys.length; i++) {
+        } else if (!isEmpty())
+            for (int i = 1; i < galamseys.length; i++) {
                 if (galamseys[i] == null) {
                     galamseys[i] = operation;
                     numOperations++;
@@ -57,24 +73,23 @@ public class UtilityClass{
             }
     }
 
-    void removeEntry(Galamsey operation){
-        if(isEmpty()){
+    void removeEntry(Galamsey operation) {
+        if (isEmpty()) {
             System.out.print("No operation available");
-        }
-        else
-            for(int i = 0; i <= numOperations; i++){
-                if(galamseys[i].equals(operation)){
+        } else
+            for (int i = 0; i <= numOperations; i++) {
+                if (galamseys[i].equals(operation)) {
                     galamseys[i] = null;
                     numOperations--;
                 }
             }
     }
 
-    String allOperations(){
+    String allOperations() {
 
         StringBuilder newString = new StringBuilder();
-        for(int i = 0; i < numOperations; i++){
-            newString.append("Operation ").append(i+1).append(operationList().get(i).toString()).append("\n\n");
+        for (int i = 0; i < numOperations; i++) {
+            newString.append("Operation ").append(i + 1).append(operationList().get(i).toString()).append("\n\n");
         }
         return newString.toString();
     }
@@ -86,15 +101,14 @@ public class UtilityClass{
                 operations.add(galamsey);
             }
         }
-        return operations ;
+        return operations;
     }
 
     void writeToFile() throws IOException {
-        FileWriter fileWriter = new FileWriter("C:\\Users\\Basingnaa\\Desktop\\icp\\Galamsey Data.txt");
+        FileWriter fileWriter = new FileWriter("C:\\Users\\user\\Desktop\\Galamsey Data.txt");
         fileWriter.write("GALAMSEY OPERATIONS\n");
         fileWriter.write(allOperations());
         fileWriter.close();
         System.out.println("Galamsey Data Done");
     }
-
 }
