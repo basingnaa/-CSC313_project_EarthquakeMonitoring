@@ -24,7 +24,7 @@ public class testProgram {
         Observatory observatory1 = new Observatory("NATIONAL OBSERVATORY", "Ghana", 2019, 1000, collection);
         observatory1.writeToFile();
 
-        //writing To the database
+        //Writing To the database
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection myCon=null;
@@ -43,9 +43,6 @@ public class testProgram {
             System.out.println(e);
         }
         System.out.println("Successfully Updated both tables");
-
-
-        //Observatory object, observatory instantiated to hold the stored collection of galamsey operations
 
 
     }

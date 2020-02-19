@@ -1,4 +1,5 @@
-use galam; 
+create database galam;
+use galam;
 
 Create table galamseydata(
 	colour varchar(10),
