@@ -1,4 +1,5 @@
-use galam;
+use galam; 
+
 Create table galamseydata(
 	colour varchar(10),
     year_observed year,

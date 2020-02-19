@@ -64,7 +64,7 @@ public class AddGalamData{
 //        return newData;
 //    }
 
-    public void saveData(ActionEvent event) throws IOException{
+    public void saveData(ActionEvent event) throws Exception {
         Stage window;
         Parent popUp;
 
@@ -74,11 +74,12 @@ public class AddGalamData{
         latt = Integer.parseInt(latTextField.getText());
 
         Galamsey newData = new Galamsey(veg,year,latt,lngt);
+        newData.writeDb();
         collect = new UtilityClass(50);
 
         //collect.setEntryNum(50);
         collect.addEntry(newData);
-        collect.writeToFile();
+        //collect.writeToFile();
 
         //collect.writeToFile();
 //        Parent popUp = FXMLLoader.load(getClass().getResource("addGalamPopUp.fxml"));

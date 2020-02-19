@@ -1,4 +1,4 @@
-package Project_1;
+package project;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,6 +18,7 @@ class WritetoDatabase {
 		myCon = DriverManager.getConnection(DB_URL, USER, PASS);
 		PreparedStatement insertGalam = myCon.prepareStatement("INSERT INTO galamseydata(colour, year_observed, latitude,longitude) VALUES (" + str + "," + year + "," + latitude + "," + longitude + ");");
 		insertGalam.executeUpdate();
+		System.out.println("Galamsey Data Added.");
 
 	}
 
@@ -30,7 +31,7 @@ class WritetoDatabase {
 		myCon = DriverManager.getConnection(DB_URL, USER, PASS);
 		PreparedStatement insertObservatory=myCon.prepareStatement("INSERT INTO observatorydata(observatoryName, countryName, galamseyStartyear, areaCovered ) VALUES ("+str+","+str1+","+year+","+area+");");
 		insertObservatory.executeUpdate();
-
+		System.out.println("Observatory Data Added.");
 
     }
     void insertIntoDatabaseGalamsey(Enum colour, int year, double latitude, double longitude) throws SQLException,Exception{

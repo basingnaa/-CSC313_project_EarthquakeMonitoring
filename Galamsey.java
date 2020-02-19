@@ -1,4 +1,4 @@
-package Project_1;
+package project;
 
 
 import java.sql.SQLException;
@@ -62,6 +62,11 @@ public class Galamsey {
 
     public void setYear_of_event(int year_of_event) {
         this.year_of_event = year_of_event;
+    }
+
+    public void setPosition(double longitude, double latitude){
+        position[0] = longitude;
+        position[1] = latitude;
     }
 
 

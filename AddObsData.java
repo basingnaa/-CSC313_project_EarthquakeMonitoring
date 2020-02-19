@@ -48,7 +48,7 @@ public class AddObsData extends AddGalamData{
         window.show();
     }
 
-    public void saveData(ActionEvent event) throws IOException {
+    public void saveData(ActionEvent event) throws Exception {
         Stage stage;
         Parent root;
 
@@ -58,7 +58,7 @@ public class AddObsData extends AddGalamData{
         area = Integer.parseInt(areaTextField.getText());
 
         Observatory newData = new Observatory(obsName,country,year,area,collect);
-        newData.writeToFile();
+        newData.writeToDb();
 
         stage = new Stage();
         root = FXMLLoader.load(getClass().getResource("addObsPopUp.fxml"));
