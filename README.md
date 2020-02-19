@@ -15,11 +15,15 @@ the country. These are denoted by colour codes (Green, Yellow, Brown), position 
 **Installation**
 
 Main IDE used
+
 *IntelliJ
 
 Supporting programs
+
 *Scene builder
+
 *JavaFx
+
 *MySQL
 
 
