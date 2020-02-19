@@ -41,6 +41,6 @@ Supporting programs
 **Authors**
 
 * Anthony Basignaa
-* Kweku Agyemang
+* Kwaku Ofosu-Agyeman
 * Mark Zoiku
 * Seyram Hugh-Tamakloe
