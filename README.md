@@ -1,13 +1,14 @@
 # Project
 
 **Table of contents**
-*Description
-*Installation
-*How to run code
-*Authors
+* Description
+* Installation
+* How to run code
+* Authors
 
 
 **Description**
+
 This is a programme that has been designed to monitor the occurance of Galamsey Operations in various areas throughout 
 the country. These are denoted by colour codes (Green, Yellow, Brown), position (longitudes and latitudes) and year of commencement to indicate the areas where these operations occur and the countries they occur in which are stored and later retrieved  
 
@@ -16,15 +17,15 @@ the country. These are denoted by colour codes (Green, Yellow, Brown), position 
 
 Main IDE used
 
-*IntelliJ
+* IntelliJ
 
 Supporting programs
 
-*Scene builder
+* Scene builder
 
-*JavaFx
+* JavaFx
 
-*MySQL
+* MySQL
 
 
 **How to run Code**
