@@ -1,4 +1,4 @@
-package project;
+package Project_1;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,6 +15,7 @@ public class Observatory extends UtilityClass {
     UtilityClass event;
     ArrayList<Galamsey> galamseylist;
     FileWriter fileWriter;
+    int OID;
 
     //Default constructor
     Observatory() throws IOException {
@@ -40,6 +41,15 @@ public class Observatory extends UtilityClass {
         this.galamseyStartingYear = galamseyStartingYear;
         this.areaCovered = areaCovered;
         this.event = event;
+        //fileWriter = new FileWriter("C:\\Users\\Kwaku Ofosu-Agyeman\\Desktop\\Observatory Data.txt");
+    }
+    Observatory(String observatoryName, String countryName, int galamseyStartingYear, int areaCovered, UtilityClass event, int OID) throws IOException {
+        this.observatoryName = observatoryName;
+        this.countryName = countryName;
+        this.galamseyStartingYear = galamseyStartingYear;
+        this.areaCovered = areaCovered;
+        this.event = event;
+        this.OID=OID;
         //fileWriter = new FileWriter("C:\\Users\\Kwaku Ofosu-Agyeman\\Desktop\\Observatory Data.txt");
     }
 
@@ -113,6 +123,18 @@ public class Observatory extends UtilityClass {
         return galamseylist;
     }
 
+    /**
+     * Setter method for OID
+     * @param OID
+     */
+    public void setOID(int OID){ this.OID=OID; }
+
+    /**
+     * Setter method for OID
+     * @return OID:int
+     */
+    public int getOID() { return this.OID;}
+
 
     int obv_largestColourValue() {
         int maxColourValue = 0;
@@ -147,12 +169,6 @@ public class Observatory extends UtilityClass {
             }
         }
         return galamseylist;
-    }
-
-    public void printGalamList(ArrayList<Galamsey> list){
-        for(int i=0;i<list.size();i++){
-            System.out.println(list.get(i));
-        }
     }
 
 
