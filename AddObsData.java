@@ -1,5 +1,10 @@
 package project;
 
+/**
+ * @author Anthony Basingnaa
+ * @version 1.0
+ */
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,6 +43,7 @@ public class AddObsData extends AddGalamData{
     @FXML
     private Button CloseBtn;
 
+    //method that take you back to the main menu
     public void exit(ActionEvent event) throws IOException {
         Parent exitScreen = FXMLLoader.load(getClass().getResource("addData.fxml"));
         Scene addData = new Scene(exitScreen);
@@ -48,6 +54,7 @@ public class AddObsData extends AddGalamData{
         window.show();
     }
 
+    //method that saves input data to the database
     public void saveData(ActionEvent event) throws Exception {
         Stage stage;
         Parent root;
@@ -72,6 +79,7 @@ public class AddObsData extends AddGalamData{
         areaTextField.clear();
     }
 
+    //method that closes the pop up window
     public void close(ActionEvent event) throws IOException {
         Stage window;
         window = (Stage) CloseBtn.getScene().getWindow();

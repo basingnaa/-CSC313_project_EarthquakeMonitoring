@@ -155,19 +155,7 @@ public class Observatory extends UtilityClass {
         }
     }
 
-
-    //Storing data in a new file using the FileWriter class
-   /* void writeToFile() throws IOException {
-        fileWriter = new FileWriter("C:\\Users\\Kwaku Ofosu-Agyeman\\Desktop\\Observatory Data.txt");
-        fileWriter.write(observatoryName + "\n");
-        fileWriter.write("Largest Colour Values\t" + obv_largestColourValue() + "\n");
-        fileWriter.write("Average Colour Value\t" + obv_avgColourValue() + "\n");
-
-        System.out.println("Observatory Data Done");
-
-        fileWriter.close();
-
-    }*/
+    //Writing to the database.
     void writeToDb()throws SQLException,Exception {
         WritetoDatabase util=new WritetoDatabase();
         util.writeToDatabaseObservatory(getObservatoryName(),getCountryName(),getGalamseyStartingYear(),getAreaCovered());

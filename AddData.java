@@ -1,5 +1,10 @@
 package project;
 
+/**
+ * @author Anthony Basingnaa
+ * @version 1.0
+ */
+
 import com.mysql.cj.jdbc.JdbcConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +25,7 @@ import java.io.IOException;
 import java.sql.*;
 
 public class AddData {
+
     private Object Node;
     private ObservableList<Galamsey> data;
     private ObservableList<Observatory> data2;
@@ -70,7 +76,7 @@ public class AddData {
     @FXML
     private Button OKBtn;
 
-
+    //Method that opens a scene to add observatory data
     public void addNewObsData(ActionEvent event) throws IOException {
         Parent addNewObsParent = FXMLLoader.load(AddData.class.getResource("addObsData.fxml"));
         Scene addNewObsScene = new Scene(addNewObsParent);
@@ -81,6 +87,7 @@ public class AddData {
         window.show();
     }
 
+    //Method that opens a scene to add galamsey data
     public void addNewGalamData(ActionEvent event) throws IOException {
         Parent addNewGalamParent = FXMLLoader.load(AddData.class.getResource("addGalamData.fxml"));
         Scene addNewGalamScene = new Scene(addNewGalamParent);
@@ -91,6 +98,7 @@ public class AddData {
         window.show();
     }
 
+    //Method that allows you to access table view of entered galamsey data
     public void viewGalam(ActionEvent event) throws IOException{
         Parent galam = FXMLLoader.load(AddGalamData.class.getResource("viewGalam.fxml"));
         Scene viewgalam = new Scene(galam);
@@ -101,6 +109,7 @@ public class AddData {
         windw.show();
     }
 
+    //Method that allow you to access table view of entered observatory data
     public void viewObs(ActionEvent event) throws IOException{
         Parent obs = FXMLLoader.load(AddGalamData.class.getResource("viewObs.fxml"));
         Scene viewobs = new Scene(obs);
@@ -111,6 +120,7 @@ public class AddData {
         window.show();
     }
 
+    //method that loads galamsey data from the database
     public void loadGalam(ActionEvent event) {
         try {
             String obsnamm = columnnObs.getText();
@@ -139,13 +149,7 @@ public class AddData {
         tableGalam.setItems(data);
     }
 
-//    public void getObsName(ActionEvent event){
-//        Stage window;
-//        columnnObs.clear();
-//        window = (Stage) OKBtn.getScene().getWindow();
-//        window.close();
-//    }
-
+    //method that deletes selected items from the table view of observatory data
     public void deleteObs(ActionEvent event) throws Exception {
         ObservableList<Observatory> selected = tableObs.getSelectionModel().getSelectedItems();
         int areaCovered = selected.get(0).getAreaCovered();
@@ -154,6 +158,7 @@ public class AddData {
         tableObs.getItems().removeAll(tableObs.getSelectionModel().getSelectedItem());
     }
 
+    //method that deletes selected items from the table view of galamsey data
     public void deleteGalam(ActionEvent event) throws Exception {
         ObservableList<Galamsey> selected = tableGalam.getSelectionModel().getSelectedItems();
         double longitude = selected.get(0).getLongitude();
@@ -163,6 +168,7 @@ public class AddData {
         tableGalam.getItems().removeAll(tableGalam.getSelectionModel().getSelectedItem());
     }
 
+    //method that loads observatory data from the database
     public void loadObs(ActionEvent event) {
         try {
             data2 = FXCollections.observableArrayList();
@@ -187,6 +193,7 @@ public class AddData {
         tableObs.setItems(data2);
     }
 
+    //method that take you back to the main menu
     public void exit(ActionEvent event) throws IOException {
         Parent exitScreen = FXMLLoader.load(AddGalamData.class.getResource("addData.fxml"));
         Scene addData = new Scene(exitScreen);

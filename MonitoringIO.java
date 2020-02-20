@@ -1,10 +1,15 @@
 package project;
+/**
+ * @author Anthony Basingnaa
+ * @version 1.0
+ */
 
 import java.util.Scanner;
 
 
 public class MonitoringIO{
 
+    //Main class for adding Observatory and Galamsey data and Monitoring their statistics.
     public static void main(String[] args) throws Exception {
 
         Scanner scan = new Scanner(System.in);

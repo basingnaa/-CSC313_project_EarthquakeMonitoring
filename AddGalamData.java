@@ -1,5 +1,10 @@
 package project;
 
+/**
+ * @author Anthony Basingnaa
+ * @version 1.0
+ */
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,10 +49,9 @@ public class AddGalamData{
     private int latt;
     private String obsName;
     private Object Node;
-
     public UtilityClass collect;
 
-
+    //method that take you back to the main menu
     public void exit(ActionEvent event) throws IOException {
         Parent exitScreen = FXMLLoader.load(AddGalamData.class.getResource("addData.fxml"));
         Scene addData = new Scene(exitScreen);
@@ -58,7 +62,7 @@ public class AddGalamData{
         window.show();
     }
 
-
+    //method that saves input data to the database
     public void saveData(ActionEvent event) throws Exception {
         Stage window;
         Parent popUp;
@@ -72,8 +76,6 @@ public class AddGalamData{
 
         Galamsey newData = new Galamsey(obsName,veg,year,latt,lngt);
         newData.writeDb();
-        collect = new UtilityClass(50);
-        collect.addEntry(newData);
         window = new Stage();
         popUp = FXMLLoader.load(getClass().getResource("addGalamPopUp.fxml"));
         window.setScene(new Scene(popUp));
@@ -86,6 +88,7 @@ public class AddGalamData{
         obsTextField.clear();
     }
 
+    //method that closes the pop up window
     public void close(ActionEvent event) throws IOException {
         Stage window;
         window = (Stage) CloseBtn.getScene().getWindow();
