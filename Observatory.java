@@ -149,6 +149,12 @@ public class Observatory extends UtilityClass {
         return galamseylist;
     }
 
+    public void printGalamList(ArrayList<Galamsey> list){
+        for(int i=0;i<list.size();i++){
+            System.out.println(list.get(i));
+        }
+    }
+
 
     //Storing data in a new file using the FileWriter class
    /* void writeToFile() throws IOException {

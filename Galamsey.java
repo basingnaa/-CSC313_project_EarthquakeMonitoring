@@ -1,15 +1,18 @@
 package project;
 
 
+import javafx.beans.property.IntegerProperty;
+
 import java.sql.SQLException;
 import java.util.Arrays;
 
 /**
- * @author  Mark Zoiku, Seyram Tamakloe, Anthony Basignaa
+ * @author  Mark Zoiku, Seyram Tamakloe, Anthony Basingnaa
  * @version 1.0.0
  * @since 09-02-2020
  */
 public class Galamsey {
+
     //Instance variables
     public enum VC {
         GREEN, YELLOW, BROWN
@@ -18,7 +21,10 @@ public class Galamsey {
     public VC veg_colour;
     public int colour_value;
     public double[] position;
+    public double longitude;
+    public double latitude;
     public int year_of_event;
+
 
     //Default constructor
     Galamsey(){

@@ -57,8 +57,8 @@ public class Monitoring extends Observatory {
      * @param colourvalue takes in arbitrary colour value from the user
      * @return :an ArrayList for all galamsey operations with colour value greater than the arbitrary number provided by the user
      */
-    ArrayList<Galamsey> galamseyList_colourvalabove(int colourvalue){
-        ArrayList<Galamsey> galamseylist = new ArrayList<>(event.getNumOperations());
+    ArrayList<Galamsey> galamseyList_colourvalabove(ArrayList<Galamsey> galamseylist,int colourvalue){
+        galamseylist = new ArrayList<>(event.getNumOperations());
 
         for(int i = 0; i < event.numOperations; i++){
             if(event.galamseys[i].getColour_value() > colourvalue){
@@ -66,6 +66,12 @@ public class Monitoring extends Observatory {
             }
         }
         return galamseylist;
+    }
+
+    public static void printStats(ArrayList<Galamsey> list){
+        for(int i = 0; i<list.size();i++){
+            System.out.println(list.get(i));
+        }
     }
     
 }

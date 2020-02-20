@@ -40,7 +40,7 @@ Supporting programs
 
 **Authors**
 
-* Anthony Basignaa
+* Anthony Basingnaa
 * Kwaku Ofosu-Agyeman
 * Mark Zoiku
 * Seyram Hugh-Tamakloe

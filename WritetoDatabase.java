@@ -10,7 +10,7 @@ class WritetoDatabase {
 	static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/galam";
 
 	static final String USER="root";
-	static final String PASS="kwaku128@";
+	static final String PASS="admin";
 	void writeToDatabaseGalamsey(Enum colour, int year, double latitude, double longitude) throws SQLException, Exception {
 		Connection myCon;
 		String str = "'" + colour + "'";
@@ -69,6 +69,10 @@ class WritetoDatabase {
 		myCon = DriverManager.getConnection(DB_URL, USER, PASS);
 		PreparedStatement insertObservatory=myCon.prepareStatement("DELETE FROM observatorydata WHERE latitude="+latitude+"and longitude="+longitude);
 		insertObservatory.executeUpdate();
+
+	}
+
+	void retrieveFromGamlamsey(){
 
 	}
 
