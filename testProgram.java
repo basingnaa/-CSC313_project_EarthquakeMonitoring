@@ -38,7 +38,7 @@ public class testProgram {
             m.insertIntoDatabaseGalamsey(Galamsey.VC.BROWN,2014,104.5,206.5);
             m.insertIntoDatabaseObservatory("INTERNATIONAL OBSERVATORY","USA",2006,1402);
             m.deletefromdatabaseObseratory(1000);
-            m.deletefromdatabaseGalamsey(101.65,200.53);
+            //m.deletefromdatabaseGalamsey(101.65,200.53);
         }catch(Exception e){
             System.out.println(e);
         }

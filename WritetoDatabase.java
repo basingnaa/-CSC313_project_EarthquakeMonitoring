@@ -67,14 +67,7 @@ class WritetoDatabase {
 		Connection myCon;
 		Class.forName("com.mysql.jdbc.Driver");
 		myCon = DriverManager.getConnection(DB_URL, USER, PASS);
-		PreparedStatement insertObservatory=myCon.prepareStatement("DELETE FROM observatorydata WHERE latitude="+latitude+"and longitude="+longitude);
+		PreparedStatement insertObservatory=myCon.prepareStatement("DELETE FROM galamseydata WHERE latitude="+latitude+"and longitude="+longitude);
 		insertObservatory.executeUpdate();
-
 	}
-
-	void retrieveFromGamlamsey(){
-
-	}
-
-
 }

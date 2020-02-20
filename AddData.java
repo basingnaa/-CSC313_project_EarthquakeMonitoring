@@ -121,7 +121,23 @@ public class AddData {
         columnLong.setCellValueFactory(new PropertyValueFactory<>("longitude"));
         tableGalam.setItems(null);
         tableGalam.setItems(data);
+    }
 
+    public void deleteObs(ActionEvent event) throws Exception {
+        ObservableList<Observatory> selected = tableObs.getSelectionModel().getSelectedItems();
+        int areaCovered = selected.get(0).getAreaCovered();
+        WritetoDatabase delete = new WritetoDatabase();
+        delete.deletefromdatabaseObseratory(areaCovered);
+        tableObs.getItems().removeAll(tableObs.getSelectionModel().getSelectedItem());
+    }
+
+    public void deleteGalam(ActionEvent event) throws Exception {
+        ObservableList<Galamsey> selected = tableGalam.getSelectionModel().getSelectedItems();
+        double longitude = selected.get(0).getLongitude();
+        double latitude = selected.get(0).getLatitude();
+        WritetoDatabase delete = new WritetoDatabase();
+        delete.deletefromdatabaseGalamsey(latitude,longitude);
+        tableGalam.getItems().removeAll(tableGalam.getSelectionModel().getSelectedItem());
     }
 
     public void loadObs(ActionEvent event) {
@@ -132,7 +148,8 @@ public class AddData {
             con = DriverManager.getConnection(DB_URL, USER, PASS);
             ResultSet rs = con.createStatement().executeQuery("SELECT * FROM observatorydata");
             while (rs.next()) {
-                data2.add(new Observatory(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4),MonitoringIO.collect));
+                UtilityClass coll = null;
+                data2.add(new Observatory(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4),coll));
             }
 
         }catch (SQLException | IOException ex){
@@ -145,7 +162,6 @@ public class AddData {
         columnArea.setCellValueFactory(new PropertyValueFactory<>("areaCovered"));
         tableObs.setItems(null);
         tableObs.setItems(data2);
-
     }
 
     public void exit(ActionEvent event) throws IOException {
@@ -157,5 +173,7 @@ public class AddData {
         window.setScene(addData);
         window.show();
     }
+
+
 
 }
