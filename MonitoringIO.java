@@ -8,56 +8,61 @@ import java.util.Scanner;
 
 public class MonitoringIO{
     public static Monitoring stats;
-    public static UtilityClass collect;
+    public static UtilityClass collect = new UtilityClass(50);
 
-    public static void observatoryData() throws Exception {
-        Observatory newObs = new Observatory();
+    public static Observatory observatoryData() throws Exception {
+
         Scanner obs = new Scanner(System.in);
         System.out.println("Enter Observatory name: ");
         String name = obs.nextLine();
-        newObs.setObservatoryName(name);
+        //newObs.setObservatoryName(name);
         System.out.println("Enter Country name: ");
         String country = obs.nextLine();
-        newObs.setCountryName(country);
+        //newObs.setCountryName(country);
         System.out.println("Enter Area Covered: ");
         int area = obs.nextInt();
-        newObs.setAreaCovered(area);
+        //newObs.setAreaCovered(area);
         System.out.println("Enter Starting Year: ");
         int yr = obs.nextInt();
-        newObs.setGalamseyStartingYear(yr);
-        stats = new Monitoring(name,country,yr,area,collect);
-        ArrayList<Observatory> Obs = new ArrayList<>();
-        Obs.add(newObs);
-        newObs.writeToDb();
-        ArrayList<ArrayList<Object>> ops = new ArrayList();
+        //newObs.setGalamseyStartingYear(yr);
+        Observatory newObs = new Observatory(name,country,yr,area,collect);
+        //stats = new Monitoring(name,country,yr,area,collect);
+        //ArrayList<Observatory> Obs = new ArrayList<>();
+        //Obs.add(newObs);
+        //newObs.writeToDb();
+        return newObs;
+        //ArrayList<ArrayList<Object>> ops = new ArrayList();
 //        for(int i=0;i<100;i++){
 //            ops.add(new ArrayList<Object>(ops));
 //        }
     }
 
-    public static void galamseyData() throws Exception {
-        Galamsey newGalam = new Galamsey();
+    public static Galamsey galamseyData() throws Exception {
+
         Scanner gam = new Scanner(System.in);
         System.out.println("Enter Vegetation Colour(GREEN, BROWN, YELLOW): ");
         String colour = gam.nextLine();
         String col = colour.toUpperCase();
-        newGalam.setVeg_colour(Galamsey.VC.valueOf(col));
+        //newGalam.setVeg_colour(Galamsey.VC.valueOf(col));
         System.out.println("Enter Year of Event: ");
         int yr = gam.nextInt();
-        newGalam.setYear_of_event(yr);
+        //newGalam.setYear_of_event(yr);
         System.out.println("Enter Longitude: ");
         double lng = gam.nextDouble();
         System.out.println("Enter Latitude: ");
         double lat = gam.nextDouble();
-        newGalam.setPosition(lng,lat);
-        newGalam.writeDb();
-        collect = new UtilityClass(50);
-        collect.addEntry(newGalam);
+        //newGalam.setPosition(lng,lat);
+        Galamsey newGalam = new Galamsey(Galamsey.VC.valueOf(col),yr,lat,lng);
+        return newGalam;
+        //newGalam.writeDb();
+        //collect = new UtilityClass(50);
+        //collect.addEntry(newGalam);
 //        ArrayList<ArrayList<Object>> ops = new ArrayList();
 //        for(int i=0;i<100;i++){
 //            ops.add(new ArrayList<Object>(ops));
         //}
     }
+
 
     public static void main(String[] args) throws Exception {
         Scanner scan = new Scanner(System.in);
@@ -72,13 +77,17 @@ public class MonitoringIO{
 
             switch (input) {
                 case 1:
-                    observatoryData();
+                    Observatory obsdata = observatoryData();
+                    obsdata.writeToDb();
+                    stats = new Monitoring(obsdata.getObservatoryName(),obsdata.getCountryName(),obsdata.galamseyStartingYear,obsdata.getAreaCovered(),collect);
                     System.out.print("\nContinue or Exit >> ");
                     dec = scan.next();
                     break;
 
                 case 2:
-                    galamseyData();
+                    Galamsey galamdata = galamseyData();
+                    collect.addEntry(galamdata);
+                    galamdata.writeDb();
                     System.out.print("\nContinue or Exit >> ");
                     dec = scan.next();
                     break;

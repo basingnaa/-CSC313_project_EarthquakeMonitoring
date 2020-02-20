@@ -15,3 +15,5 @@ create table observatorydata(
     galamseyStartYear mediumint,
     areaCovered mediumint
 	);
+    
+    select * from galamseydata;
