@@ -1,4 +1,4 @@
-package Project_1;
+package project;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,7 +15,6 @@ public class Observatory extends UtilityClass {
     UtilityClass event;
     ArrayList<Galamsey> galamseylist;
     FileWriter fileWriter;
-    int OID;
 
     //Default constructor
     Observatory() throws IOException {
@@ -41,15 +40,6 @@ public class Observatory extends UtilityClass {
         this.galamseyStartingYear = galamseyStartingYear;
         this.areaCovered = areaCovered;
         this.event = event;
-        //fileWriter = new FileWriter("C:\\Users\\Kwaku Ofosu-Agyeman\\Desktop\\Observatory Data.txt");
-    }
-    Observatory(String observatoryName, String countryName, int galamseyStartingYear, int areaCovered, UtilityClass event, int OID) throws IOException {
-        this.observatoryName = observatoryName;
-        this.countryName = countryName;
-        this.galamseyStartingYear = galamseyStartingYear;
-        this.areaCovered = areaCovered;
-        this.event = event;
-        this.OID=OID;
         //fileWriter = new FileWriter("C:\\Users\\Kwaku Ofosu-Agyeman\\Desktop\\Observatory Data.txt");
     }
 
@@ -123,20 +113,8 @@ public class Observatory extends UtilityClass {
         return galamseylist;
     }
 
-    /**
-     * Setter method for OID
-     * @param OID
-     */
-    public void setOID(int OID){ this.OID=OID; }
 
-    /**
-     * Setter method for OID
-     * @return OID:int
-     */
-    public int getOID() { return this.OID;}
-
-
-    int obv_largestColourValue() {
+    int obv_largestColourValue() throws SQLException, ClassNotFoundException {
         int maxColourValue = 0;
 
         for(int i = 0; i < event.numOperations; i++){
@@ -147,7 +125,7 @@ public class Observatory extends UtilityClass {
         return maxColourValue;
     }
 
-    double obv_avgColourValue() {
+    double obv_avgColourValue() throws SQLException, ClassNotFoundException {
         double average;
         double accumulated = 0;
         final double TOTAL_ENTRIES = event.numOperations;
@@ -169,6 +147,12 @@ public class Observatory extends UtilityClass {
             }
         }
         return galamseylist;
+    }
+
+    public void printGalamList(ArrayList<Galamsey> list){
+        for(int i=0;i<list.size();i++){
+            System.out.println(list.get(i));
+        }
     }
 
 

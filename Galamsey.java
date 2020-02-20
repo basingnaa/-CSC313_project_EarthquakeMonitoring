@@ -1,15 +1,19 @@
-package Project_1;
+package project;
 
 
+import javafx.beans.property.IntegerProperty;
+
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Arrays;
 
 /**
- * @author  Mark Zoiku, Seyram Tamakloe, Anthony Basignaa
+ * @author  Mark Zoiku, Seyram Tamakloe, Anthony Basingnaa
  * @version 1.0.0
  * @since 09-02-2020
  */
 public class Galamsey {
+
     //Instance variables
     public enum VC {
         GREEN, YELLOW, BROWN
@@ -18,8 +22,11 @@ public class Galamsey {
     public VC veg_colour;
     public int colour_value;
     public double[] position;
+    public double longitude;
+    public double latitude;
     public int year_of_event;
-    private int gal;
+    public String obs;
+
 
     //Default constructor
     Galamsey(){
@@ -36,7 +43,7 @@ public class Galamsey {
      * @param latitude longitude to be assigned to position array index 0
      * @param longitude latitude to be assigned to position array index 1
      */
-    Galamsey(VC veg_colour, int year_of_event, double latitude, double longitude){
+    Galamsey(String obs, VC veg_colour, int year_of_event, double latitude, double longitude) throws IOException {
         this.veg_colour = veg_colour;
 
         if (veg_colour == VC.GREEN) {
@@ -52,25 +59,11 @@ public class Galamsey {
         this.year_of_event = year_of_event;
 
         position = new double[]{longitude, latitude};
+        //Observatory obss = new Observatory();
+        this.obs = obs;
+
     }
-    Galamsey(VC veg_colour, int year_of_event, double latitude, double longitude,int gal){
-        this.veg_colour = veg_colour;
 
-        if (veg_colour == VC.GREEN) {
-            this.colour_value = 1;
-        }
-        else if(veg_colour == VC.YELLOW){
-            this.colour_value = 2;
-        }
-        else if(veg_colour == VC.BROWN){
-            this.colour_value = 3;
-        }
-
-        this.year_of_event = year_of_event;
-
-        position = new double[]{longitude, latitude};
-        this.gal=gal;
-    }
 
     //MUTATOR METHODS FOR THE GALAMSEY CLASS
     public void setVeg_colour(VC veg_colour) { this.veg_colour = veg_colour; }
@@ -87,7 +80,6 @@ public class Galamsey {
         position[0] = longitude;
         position[1] = latitude;
     }
-    public void setGal(int gal){this.gal=gal;}
 
 
     //ACCESSOR METHODS FOR GALAMSEY CLASS
@@ -107,11 +99,11 @@ public class Galamsey {
 
     public double getLatitude(){return position[1];}
 
-    public int getGal(){return gal;}
+    public String getObs(){return obs;}
 
     public void writeDb() throws SQLException,Exception {
         WritetoDatabase util=new WritetoDatabase();
-        util.writeToDatabaseGalamsey(getVeg_colour(),getYear_of_event(),getLongitude(),getLatitude(),gal);
+        util.writeToDatabaseGalamsey(obs,getVeg_colour(),getColour_value(),getYear_of_event(),getLongitude(),getLatitude());
     }
 
     @Override

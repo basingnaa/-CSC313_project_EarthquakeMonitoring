@@ -2,11 +2,14 @@ create database galam;
 use galam;
 
 Create table galamseydata(
+	observatoryName varchar(35),
 	colour varchar(10),
+    colour_value tinyint,
     year_observed year,
     latitude double,
     longitude double,
-    primary key(latitude,longitude)
+    primary key(latitude,longitude),
+    foreign key(observatoryName) references observatorydata(observatoryName)
 	);
 create table observatorydata(
 	observatoryName varchar(35),
@@ -17,3 +20,4 @@ create table observatorydata(
 	);
     
     select * from galamseydata;
+    select * from observatorydata; 

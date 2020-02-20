@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -35,6 +32,9 @@ public class AddGalamData{
     @FXML
     private Button CloseBtn;
 
+    @FXML
+    private TextField obsTextField;
+
 
 
 
@@ -42,6 +42,7 @@ public class AddGalamData{
     private int year;
     private int lngt;
     private int latt;
+    private String obsName;
     private Object Node;
 
     public UtilityClass collect;
@@ -62,12 +63,14 @@ public class AddGalamData{
         Stage window;
         Parent popUp;
 
-        veg = Galamsey.VC.valueOf(vegTextField.getText());
+        String upp = vegTextField.getText().toUpperCase();
+        veg = Galamsey.VC.valueOf(upp);
         year = Integer.parseInt(yearTextField.getText());
         lngt = Integer.parseInt(longTextField.getText());
         latt = Integer.parseInt(latTextField.getText());
+        obsName = obsTextField.getText();
 
-        Galamsey newData = new Galamsey(veg,year,latt,lngt);
+        Galamsey newData = new Galamsey(obsName,veg,year,latt,lngt);
         newData.writeDb();
         collect = new UtilityClass(50);
         collect.addEntry(newData);
@@ -80,6 +83,7 @@ public class AddGalamData{
         yearTextField.clear();
         vegTextField.clear();
         latTextField.clear();
+        obsTextField.clear();
     }
 
     public void close(ActionEvent event) throws IOException {

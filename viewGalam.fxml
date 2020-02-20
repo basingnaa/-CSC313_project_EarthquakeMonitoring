@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -11,13 +12,15 @@
    <children>
       <TableView fx:id="tableGalam" layoutX="26.0" layoutY="83.0" prefHeight="295.0" prefWidth="628.0">
         <columns>
-          <TableColumn fx:id="columnVegColor" prefWidth="129.60003662109375" text="Vegetation colour" />
-          <TableColumn fx:id="columnYear" prefWidth="157.5999755859375" text="Year" />
-            <TableColumn fx:id="columnLong" prefWidth="179.20001220703125" text="Longitude" />
-            <TableColumn fx:id="columnLatt" prefWidth="161.60003662109375" text="Latitude" />
+          <TableColumn fx:id="columnVegColor" prefWidth="114.4000244140625" text="Vegetation colour" />
+          <TableColumn fx:id="columnYear" minWidth="0.0" prefWidth="84.0" text="Year" />
+            <TableColumn fx:id="columnLong" prefWidth="89.60003662109375" text="Longitude" />
+            <TableColumn fx:id="columnLatt" prefWidth="113.5999755859375" text="Latitude" />
+            <TableColumn fx:id="columnGalamObsName" prefWidth="120.79998779296875" text="Observatory Name" />
+            <TableColumn fx:id="columnColourValue" prefWidth="103.20001220703125" text="Colour Value" />
         </columns>
       </TableView>
-      <Label layoutX="258.0" layoutY="34.0" prefHeight="35.0" prefWidth="163.0" text="Galamsey Data" textAlignment="CENTER">
+      <Label layoutX="258.0" prefHeight="35.0" prefWidth="163.0" text="Galamsey Data" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
@@ -25,5 +28,6 @@
       <Button layoutX="294.0" layoutY="395.0" mnemonicParsing="false" onAction="#deleteGalam" prefHeight="26.0" prefWidth="126.0" text="Delete" />
       <Button layoutX="527.0" layoutY="395.0" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="126.0" text="Exit" />
       <Button layoutX="26.0" layoutY="395.0" mnemonicParsing="false" onAction="#loadGalam" prefHeight="26.0" prefWidth="126.0" text="Load Data" />
+      <TextField fx:id="columnnObs" layoutX="26.0" layoutY="48.0" prefHeight="26.0" prefWidth="364.0" promptText="Enter Existing Observatory Name and Click &quot;Load Data&quot;" />
    </children>
 </AnchorPane>
