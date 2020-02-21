@@ -31,13 +31,9 @@ public class testProgram {
             myCon = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/galam?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","kwaku128@");
             operation1.writeDb();
             operation2.writeDb();
-//            operation3.writeDb();
-//            operation4.writeDb();
             observatory1.writeToDb();
             WritetoDatabase m=new WritetoDatabase();
-            m.insertIntoDatabaseGalamsey(Galamsey.VC.BROWN,2014,104.5,206.5);
-            m.insertIntoDatabaseObservatory("INTERNATIONAL OBSERVATORY","USA",2006,1402);
-            m.deletefromdatabaseObseratory(1000);
+            //m.deletefromdatabaseObseratory(1000);
             //m.deletefromdatabaseGalamsey(101.65,200.53);
         }catch(Exception e){
             System.out.println(e);
