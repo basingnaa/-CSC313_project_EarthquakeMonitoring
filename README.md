@@ -30,12 +30,8 @@ Supporting programs
 
 **How to run Code**
 
-
-
-
-
-
-
+Run the MainGui.java file to run the gui.
+Run the MonitoringIO.java file to run the code for the console
 
 
 **Authors**
